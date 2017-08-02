@@ -33,6 +33,11 @@ app.get("/urls/new", (req, res) => {
   res.render("urls_new");
 });
 
+app.post("/urls/:id/delete", (req, res) => {
+  delete urlDatabase[req.params.id];
+  res.redirect("/urls");
+});
+
 app.post("/urls", (req, res) => {
   var randomShort = generateRandomString();
   urlDatabase[randomShort] = req.body.longURL;
@@ -55,6 +60,30 @@ app.get("/urls/:id", (req, res) => {
   }
   else {
     res.render("urls_new");
+  }
+});
+
+app.post("/urls/:id/", (req, res) => {
+  let templateVars = { urls: {
+                       shortURL: req.params.id,
+                       fullURL: urlDatabase[req.params.id]
+                      }
+                     }
+    res.render("urls_show", templateVars);
+});
+
+app.post("/urls/:id/edit", (req, res) => {
+  let templateVars = { urls: {
+                       shortURL: req.params.id,
+                       fullURL: urlDatabase[req.params.id]
+                      }
+                     }
+  if (req.body.newURL.length > 0) {
+    urlDatabase[req.params.id] = req.body.newURL;
+    res.redirect("/urls");
+  }
+  else {
+    res.redirect("/urls");
   }
 });
 

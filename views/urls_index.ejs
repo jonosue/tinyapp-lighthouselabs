@@ -16,11 +16,17 @@
       <% for (var x in urls) { %>
       <tr>
         <td><%=urls[x] %></td>
-        <td><a href='/u/<%= x %>'><%= x %></a></td><
+        <td><a href='/u/<%= x %>' target ='_blank'><%= x %></a></td>
         <td>
+
+           <form method="POST" action="/urls/<%= x %>">
+            <input type="submit" value="EDIT">
+          </form>
+
           <form method="POST" action="/urls/<%= x %>/delete">
             <input type="submit" value="DELETE">
           </form>
+
         </td>
       </tr>
       <% }; %>

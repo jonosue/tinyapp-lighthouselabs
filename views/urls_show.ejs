@@ -13,11 +13,23 @@
         <th>Full Link</th>
       </tr>
       <tr>
-        <td><a href='/u/<%=urls.shortURL %>'><%=urls.shortURL %></a></td>
+        <td><a href='/u/<%=urls.shortURL %>' target ='_blank'><%=urls.shortURL %></a></td>
         <td><%= urls.fullURL %></td>
       </tr>
     </table>
 
+    <br /> <br />
+
+    <h2>Edit Where this Shortlink Points To</h2>
+
+      <form action="/urls/<%=urls.shortURL %>/edit" method="POST">
+        <label for="newURL">Enter a URL:</label>
+        <input id="newURL" type="text" name="newURL" placeholder="http://" style="width: 300px">
+        <input type="submit" value="Submit Edit">
+      </form>
+
+
+    <br /> <br /> <br />
 
     <p><a href='/urls/new'>Click here to shorten another link!</a></p>
 
