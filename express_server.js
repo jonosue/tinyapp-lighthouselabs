@@ -39,6 +39,11 @@ app.post("/urls", (req, res) => {
   res.redirect('http://localhost:8080/urls/' + String(randomShort)) ;
 });
 
+app.post("/login", (req, res) => {
+  res.cookie("username", req.body.username);
+  res.redirect('/urls') ;
+});
+
 app.get("/urls", (req, res) => {
   let templateVars = { urls: urlDatabase };
   res.render("urls_index", templateVars);
