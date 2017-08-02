@@ -1,19 +1,14 @@
-function generateRandomString() {
-  let randomString = '';
-  const characterList = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  for (let x = 0; x < 6; x += 1) {
-    randomString += characterList.charAt(Math.floor(Math.random() * characterList.length));
-  }
-  return randomString;
-};
-
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 8080;
 const bodyParser = require("body-parser");
 
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: true}));
+
 app.set("view engine", "ejs");
+
 
 const urlDatabase = {
   "b2xVn2": "http://www.lighthouselabs.ca",
@@ -81,3 +76,13 @@ app.post("/urls/:id/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}!`);
 });
+
+// FUNCTIONS
+function generateRandomString() {
+  let randomString = '';
+  const characterList = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  for (let x = 0; x < 6; x += 1) {
+    randomString += characterList.charAt(Math.floor(Math.random() * characterList.length));
+  }
+  return randomString;
+};
