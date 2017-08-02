@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ./partials/_header %>
+</head>
+<body>
+
+    <h1>Link List!</h1>
+
+    <table border="1">
+      <tr>
+        <th>Full Link</th>
+        <th>Short Link</th>
+      </tr>
+      <% for (var x in urls) { %>
+      <tr>
+        <td><%=urls[x] %></td>
+        <td><a href='/u/<%= x %>'><%= x %></a></td>
+      </tr>
+      <% }; %>
+    </table>
+
+    <p><a href='/urls/new'>Click here to shorten another link!</a></p>
+
+</body>
+</html>

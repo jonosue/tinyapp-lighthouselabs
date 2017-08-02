@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ./partials/_header %>
+</head>
+<body>
+
+    <h1>Link Information</h1>
+
+      <table border="1">
+      <tr>
+        <th>Short Link</th>
+        <th>Full Link</th>
+      </tr>
+      <tr>
+        <td><a href='/u/<%=urls.shortURL %>'><%=urls.shortURL %></a></td>
+        <td><%= urls.fullURL %></td>
+      </tr>
+    </table>
+
+
+    <p><a href='/urls/new'>Click here to shorten another link!</a></p>
+
+    <p><a href='/urls'>Click here to see the full list of links!</a></p>
+
+</body>
+</html>
