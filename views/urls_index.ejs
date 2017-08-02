@@ -13,9 +13,9 @@
         <th>Short Link</th>
         <th>Options</th>
       </tr>
-      <% for (var x in urls) { %>
+      <% for (var x in vars.urls) { %>
       <tr>
-        <td><%=urls[x] %></td>
+        <td><%=vars.urls[x] %></td>
         <td><a href='/u/<%= x %>' target ='_blank'><%= x %></a></td>
         <td>
 
