@@ -130,13 +130,24 @@ app.post("/urls", (req, res) => {
 });
 
 app.post("/login", (req, res) => {
-  let templateVars = { vars: {
-                        user_id: req.cookies["user_id"],
-                        user: users
-                        }
-                      }
-  // res.cookie("user_id", userID);
-  res.redirect('/urls');
+  let userEmail = "";
+  let userPass = "";
+
+  for (let x in users) {
+    if (users[x]['email'] == req.body.email && users[x]['password'] == req.body.password) {
+      userEmail = req.body.email;
+      userPass = req.body.password;
+      res.cookie("user_id", users[x]["id"]);
+    }
+  }
+
+  if (userEmail.length > 0 && userPass.length > 0) {
+    res.redirect('/');
+  }
+  else {
+    res.sendStatus(403);
+  }
+
 });
 
 app.post("/logout", (req, res) => {
