@@ -29,11 +29,49 @@ const urlDatabase = {
   "9sm5xK": "http://www.google.com"
 };
 
+const users = {
+  "yrnatl": {
+    id: "yrnatl",
+    email: "migos@yungrichnation.com",
+    password: "trap-funk"
+  },
+ "wutang": {
+    id: "wutang",
+    email: "36chambers@wutangclan.com",
+    password: "da-mystery-of-chessboxin"
+  }
+}
 
 // METHODS
 
 app.get("/", (req, res) => {
   res.redirect('/urls/new');
+});
+
+app.get("/register", (req, res) => {
+  let templateVars = { vars: {
+                       shortURL: req.params.id,
+                       fullURL: urlDatabase[req.params.id],
+                       username: req.cookies["username"]
+                      }
+                     }
+  res.render('register', templateVars);
+});
+
+app.post("/register", (req, res) => {
+  if (req.body.email && req.body.password) {
+    let userID = generateRandomString();
+    users[userID] = {
+      id: userID,
+      email: req.body.email,
+      password: req.body.password
+    };
+    res.cookie("user_id", userID);
+    res.redirect("/urls");
+  }
+  else {
+    res.sendStatus(400);
+  }
 });
 
 app.get("/u/:shortURL", (req, res) => {
