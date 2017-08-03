@@ -24,6 +24,17 @@ function generateRandomString() {
   return randomString;
 };
 
+function emailDupeChecker(emailCheck) {
+  let emailExists = false;
+  for (let x in users) {
+    if (users[x]['email'] == emailCheck.trim()) {
+      emailExists = true;
+      break;
+    }
+  }
+  return emailExists;
+};
+
 const urlDatabase = {
   "b2xVn2": "http://www.lighthouselabs.ca",
   "9sm5xK": "http://www.google.com"
@@ -59,18 +70,24 @@ app.get("/register", (req, res) => {
 });
 
 app.post("/register", (req, res) => {
-  if (req.body.email && req.body.password) {
-    let userID = generateRandomString();
-    users[userID] = {
-      id: userID,
-      email: req.body.email,
-      password: req.body.password
-    };
-    res.cookie("user_id", userID);
-    res.redirect("/urls");
+  const emailDuplicate = emailDupeChecker(req.body.email);
+  if (emailDuplicate) {
+    res.sendStatus(400);
   }
   else {
-    res.sendStatus(400);
+    if (req.body.email && req.body.password) {
+      let userID = generateRandomString();
+      users[userID] = {
+        id: userID,
+        email: req.body.email,
+        password: req.body.password
+      };
+      res.cookie("user_id", userID);
+      res.redirect("/urls");
+    }
+    else {
+      res.sendStatus(400);
+    }
   }
 });
 
