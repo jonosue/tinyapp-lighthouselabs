@@ -115,7 +115,12 @@ app.get("/urls/new", (req, res) => {
                         user: users
                         }
                       }
-  res.render("urls_new", templateVars);
+  if (req.cookies["user_id"]) {
+    res.render("urls_new", templateVars);
+  }
+  else {
+    res.redirect("/register");
+  }
 });
 
 app.post("/urls/:id/delete", (req, res) => {

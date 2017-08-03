@@ -5,20 +5,21 @@
     <% include ./partials/_header %>
   <body>
 
-    <% if (vars.user_id){ %>
+<!--     <% if (vars.user_id){ %>
       <form method="POST" action="/logout">
         <strong>Logged in as:</strong> <%= vars.user[vars.user_id].email %>&nbsp;
         <input type="submit" value="LOGOUT">
       </form>
-    <% } else{ %>
-      <form action="/login" method="POST" style="margin:150px;">
+    <% } else{ %> -->
+      <h2>Login with your credentials:</h2>
+      <form action="/login" method="POST">
         <label for="email">Email:</label>
         <input id="email" type="email" name="email" placeholder="email@example.com" style="width: 300px">
         <label for="password">Password:</label>
         <input id="password" type="password" name="password" placeholder="Type your password..." style="width: 300px">
         <input type="submit" value="Login">
       </form>
-    <% } %>
+<!--     <% } %> -->
 
   </body>
 </html>
