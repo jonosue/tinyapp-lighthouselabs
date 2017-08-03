@@ -63,7 +63,8 @@ app.get("/register", (req, res) => {
   let templateVars = { vars: {
                        shortURL: req.params.id,
                        fullURL: urlDatabase[req.params.id],
-                       username: req.cookies["username"]
+                       username: req.cookies["username"],
+                       user: users
                       }
                      }
   res.render('register', templateVars);
@@ -99,7 +100,8 @@ app.get("/u/:shortURL", (req, res) => {
 
 app.get("/urls/new", (req, res) => {
   let templateVars = { vars: {
-                        username: req.cookies["username"]
+                        username: req.cookies["username"],
+                        user: users
                       }
                      }
   res.render("urls_new", templateVars);
@@ -129,7 +131,8 @@ app.post("/logout", (req, res) => {
 app.get("/urls", (req, res) => {
   let templateVars = { vars: {
                         urls: urlDatabase,
-                        username: req.cookies["username"]
+                        username: req.cookies["username"],
+                        user: users
                       }
                      }
   res.render("urls_index", templateVars);
@@ -139,7 +142,8 @@ app.get("/urls/:id", (req, res) => {
   let templateVars = { vars: {
                        shortURL: req.params.id,
                        fullURL: urlDatabase[req.params.id],
-                       username: req.cookies["username"]
+                       username: req.cookies["username"],
+                       user: users
                       }
                      }
   if (urlDatabase[req.params.id]) {
@@ -153,7 +157,8 @@ app.get("/urls/:id", (req, res) => {
 app.post("/urls/:id/", (req, res) => {
   let templateVars = { urls: {
                        shortURL: req.params.id,
-                       fullURL: urlDatabase[req.params.id]
+                       fullURL: urlDatabase[req.params.id],
+                       user: users
                       }
                      }
   if (req.body.newURL.length > 0) {
