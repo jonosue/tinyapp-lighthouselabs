@@ -1,19 +1,36 @@
-const express = require("express");
-const app = express();
-const PORT = process.env.PORT || 8080;
-const bodyParser = require("body-parser");
+// REQUIREMENTS
 
+const express = require("express");
+const bodyParser = require("body-parser");
 const cookieParser = require('cookie-parser');
+
+const app = express();
+
+app.set("view engine", "ejs");
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.set("view engine", "ejs");
+const port = process.env.PORT || 8080;
 
+
+// FUNCTIONS AND OBJECTS
+
+function generateRandomString() {
+  let randomString = '';
+  const characterList = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  for (let x = 0; x < 6; x += 1) {
+    randomString += characterList.charAt(Math.floor(Math.random() * characterList.length));
+  }
+  return randomString;
+};
 
 const urlDatabase = {
   "b2xVn2": "http://www.lighthouselabs.ca",
   "9sm5xK": "http://www.google.com"
 };
+
+
+// METHODS
 
 app.get("/", (req, res) => {
   res.redirect('/urls/new');
@@ -39,7 +56,7 @@ app.post("/urls/:id/delete", (req, res) => {
 });
 
 app.post("/urls", (req, res) => {
-  var randomShort = generateRandomString();
+  let randomShort = generateRandomString();
   urlDatabase[randomShort] = req.body.longURL;
   res.redirect('http://localhost:8080/urls/' + String(randomShort)) ;
 });
@@ -93,16 +110,6 @@ app.post("/urls/:id/", (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}!`);
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}!`);
 });
-
-// FUNCTIONS
-function generateRandomString() {
-  let randomString = '';
-  const characterList = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  for (let x = 0; x < 6; x += 1) {
-    randomString += characterList.charAt(Math.floor(Math.random() * characterList.length));
-  }
-  return randomString;
-};

@@ -5,7 +5,7 @@
 <body>
     <% include ./partials/_header %>
 
-    <h1>Link List!</h1>
+    <h2>Link List!</h2>
 
     <table border="1">
       <tr>
@@ -15,10 +15,9 @@
       </tr>
       <% for (var x in vars.urls) { %>
       <tr>
-        <td><%=vars.urls[x] %></td>
+        <td><%= vars.urls[x] %></td>
         <td><a href='/u/<%= x %>' target ='_blank'><%= x %></a></td>
         <td>
-
            <form method="GET" action="/urls/<%= x %>">
             <input type="submit" value="EDIT">
           </form>
@@ -26,7 +25,6 @@
           <form method="POST" action="/urls/<%= x %>/delete">
             <input type="submit" value="DELETE">
           </form>
-
         </td>
       </tr>
       <% }; %>

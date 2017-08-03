@@ -5,7 +5,7 @@
 <body>
     <% include ./partials/_header %>
 
-    <h1>Link Information</h1>
+    <h2>Link Information</h2>
 
       <table border="1">
       <tr>
@@ -13,14 +13,14 @@
         <th>Full Link</th>
       </tr>
       <tr>
-        <td><a href='/u/<%=vars.shortURL %>' target ='_blank'><%=vars.shortURL %></a></td>
+        <td><a href='/u/<%= vars.shortURL %>' target ='_blank'><%= vars.shortURL %></a></td>
         <td><%= vars.fullURL %></td>
       </tr>
     </table>
 
     <br /> <br />
 
-    <h2>Edit Where this Shortlink Points To</h2>
+    <h3>Edit Where this Shortlink Points To</h3>
 
       <form action="/urls/<%=vars.shortURL %>" method="POST">
         <label for="newURL">Enter a URL:</label>
@@ -28,8 +28,9 @@
         <input type="submit" value="Submit Edit">
       </form>
 
-
-    <br /> <br /> <br />
+    <br />
+    <br />
+    <br />
 
     <p><a href='/urls/new'>Click here to shorten another link!</a></p>
 
