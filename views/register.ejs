@@ -7,7 +7,7 @@
 
     <% if (vars.user_id){ %>
       <form method="POST" action="/logout">
-        <strong>Logged in as:</strong> <%= vars.user_id %>&nbsp;
+        <strong>Logged in as:</strong> <%= vars.user.email %>&nbsp;
         <input type="submit" value="LOGOUT">
       </form>
     <% } else{ %>
