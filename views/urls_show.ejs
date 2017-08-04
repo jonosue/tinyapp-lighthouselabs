@@ -3,11 +3,12 @@
 <head>
 </head>
 <body>
+
     <% include ./partials/_header %>
 
     <h2>Link Information</h2>
 
-      <table border="1">
+    <table border="1">
       <tr>
         <th>Short Link</th>
         <th>Full Link</th>
@@ -18,15 +19,16 @@
       </tr>
     </table>
 
-    <br /> <br />
+    <br />
+    <br />
 
     <h3>Edit Where this Shortlink Points To</h3>
 
-      <form action="/urls/<%=vars.shortURL %>" method="POST">
-        <label for="newURL">Enter a URL:</label>
-        <input id="newURL" type="text" name="newURL" value="<%= vars.fullURL %>" style="width: 300px">
-        <input type="submit" value="Submit Edited URL">
-      </form>
+    <form action="/urls/<%=vars.shortURL %>" method="POST">
+      <label for="newURL">Enter a URL:</label>
+      <input id="newURL" type="text" name="newURL" value="<%= vars.fullURL %>" style="width: 300px">
+      <input type="submit" value="Submit Edited URL">
+    </form>
 
     <br />
     <br />

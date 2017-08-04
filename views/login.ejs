@@ -2,9 +2,12 @@
 <html lang="en">
   <head>
   </head>
-    <% include ./partials/_header %>
   <body>
+
+    <% include ./partials/_header %>
+
       <h2>Login with your credentials:</h2>
+
       <form action="/login" method="POST">
         <label for="email">Email:</label>
         <input id="email" type="email" name="email" placeholder="email@example.com" style="width: 300px">
@@ -12,6 +15,8 @@
         <input id="password" type="password" name="password" placeholder="Type your password..." style="width: 300px">
         <input type="submit" value="Login">
       </form>
+
       <h2>Need to create an account? <a href="/register">Click here to register.</a></h2>
+
   </body>
 </html>
