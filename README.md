@@ -16,11 +16,11 @@ so that I can read interesting content.
 
 ## Final Product
 
-![&quot;URL Master List Page&quot;](https://raw.githubusercontent.com/jonosue/tinyapp-project/master/docs/url-list-page.png)
-![&quot;Add New Shortlink Page&quot;](https://raw.githubusercontent.com/jonosue/tinyapp-project/master/docs/new-urls-page.png)
-![&quot;Registration Page&quot;](https://raw.githubusercontent.com/jonosue/tinyapp-project/master/docs/register-page.png)
-![&quot;Login Page&quot;](https://raw.githubusercontent.com/jonosue/tinyapp-project/master/docs/login-page.png)
-![&quot;Individual URL Page&quot;](https://raw.githubusercontent.com/jonosue/tinyapp-project/master/docs/individual-url-page.png)
+!["Screenshot of URL Master List Page"](https://raw.githubusercontent.com/jonosue/tinyapp-project/master/docs/url-list-page.png)
+!["Screenshot of Add New Shortlink Page"](https://raw.githubusercontent.com/jonosue/tinyapp-project/master/docs/new-urls-page.png)
+!["Screenshot of Registration Page"](https://raw.githubusercontent.com/jonosue/tinyapp-project/master/docs/register-page.png)
+!["Screenshot of Login Page"](https://raw.githubusercontent.com/jonosue/tinyapp-project/master/docs/login-page.png)
+!["Screenshot of Individual URL Page"](https://raw.githubusercontent.com/jonosue/tinyapp-project/master/docs/individual-url-page.png)
 
 
 ## Dependencies
