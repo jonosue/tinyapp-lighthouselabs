@@ -3,6 +3,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cookieParser = require('cookie-parser');
+const bcrypt = require('bcrypt');
 
 const app = express();
 
@@ -33,7 +34,7 @@ function emailDupeChecker(emailCheck) {
     }
   }
   return emailExists;
-};
+}
 
 const urlDatabase = {
   "b2xVn2": {
@@ -61,6 +62,7 @@ const users = {
   }
 }
 
+
 // METHODS
 
 app.get("/", (req, res) => {
@@ -71,8 +73,8 @@ app.get("/register", (req, res) => {
   let templateVars = { vars: {
                         user_id: req.cookies["user_id"],
                         user: users
+                        }
                       }
-                     }
   res.render('register', templateVars);
 });
 
@@ -98,10 +100,11 @@ app.post("/register", (req, res) => {
   else {
     if (req.body.email && req.body.password) {
       let userID = generateRandomString();
+      const hashedPassword = bcrypt.hashSync(req.body.password, 10);
       users[userID] = {
         id: userID,
         email: req.body.email,
-        password: req.body.password
+        password: hashedPassword
       };
       res.cookie("user_id", userID);
       res.redirect("/urls");
@@ -143,13 +146,13 @@ app.post("/urls/:id/delete", (req, res) => {
 });
 
 app.post("/urls", (req, res) => {
-  let randomShort = generateRandomString();
+  const randomShort = generateRandomString();
   urlDatabase[randomShort] = {
     shortURL: randomShort,
     longURL: req.body.longURL,
     userID: req.cookies["user_id"]
   }
-  res.redirect('http://localhost:8080/urls/' + String(randomShort)) ;
+  res.redirect('http://localhost:8080/urls/' + String(randomShort));
 });
 
 app.post("/login", (req, res) => {
@@ -157,7 +160,7 @@ app.post("/login", (req, res) => {
   let userPass = "";
 
   for (let x in users) {
-    if (users[x]['email'] == req.body.email && users[x]['password'] == req.body.password) {
+    if (users[x]['email'] == req.body.email && bcrypt.compareSync(req.body.password, users[x]['password'])) {
       userEmail = req.body.email;
       userPass = req.body.password;
       res.cookie("user_id", users[x]["id"]);
@@ -166,6 +169,7 @@ app.post("/login", (req, res) => {
 
   if (userEmail.length > 0 && userPass.length > 0) {
     res.redirect('/');
+      console.log(users);
   }
   else {
     res.sendStatus(403);
