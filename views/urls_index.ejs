@@ -15,6 +15,7 @@
       </tr>
       <% for (var x in vars.urls) { %>
       <tr>
+        <% if (vars.urls[x].userID == vars.user_id) { %>
         <td><%= vars.urls[x].longURL %></td>
         <td><a href='/u/<%= x %>' target ='_blank'><%= x %></a></td>
         <td>
@@ -27,6 +28,7 @@
           </form>
         </td>
       </tr>
+        <% } %>
       <% }; %>
     </table>
 
