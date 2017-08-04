@@ -4,13 +4,14 @@
 <% if (vars.user_id) { %>
 <form method="POST" action="/logout">
   <input type="submit" value="LOGOUT">
+  &nbsp;&nbsp;<strong>You are logged in as: </strong><%= vars.users[vars.user_id].email %>
 </form>
 <% } else { %>
 <form method="GET" action="/login">
   <input type="submit" value="LOGIN">
 </form>
-<% } %>
 
 <form method="GET" action="/register">
   <input type="submit" value="REGISTER">
 </form>
+<% } %>
