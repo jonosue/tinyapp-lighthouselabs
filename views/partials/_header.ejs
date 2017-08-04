@@ -1,12 +1,11 @@
 <h1>
   TinyApp&copy;, by Jonathan Sue
 </h1>
-<% if (vars.user_id){ %>
+<% if (vars.user_id) { %>
 <form method="POST" action="/logout">
   <input type="submit" value="LOGOUT">
-  &nbsp;&nbsp;<strong>Logged in as:</strong> <%= vars.user[vars.user_id].email %>
 </form>
-<% } else{ %>
+<% } else { %>
 <form method="GET" action="/login">
   <input type="submit" value="LOGIN">
 </form>

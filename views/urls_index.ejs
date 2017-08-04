@@ -15,7 +15,7 @@
       </tr>
       <% for (var x in vars.urls) { %>
       <tr>
-        <td><%= vars.urls[x] %></td>
+        <td><%= vars.urls[x].longURL %></td>
         <td><a href='/u/<%= x %>' target ='_blank'><%= x %></a></td>
         <td>
            <form method="GET" action="/urls/<%= x %>">
