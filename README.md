@@ -25,13 +25,12 @@ so that I can read interesting content.
 
 ## Dependencies
 
-- Node.js
-- Express
-- EJS
 - bcrypt
 - body-parser
 - cookie-session
-
+- EJS
+- Express
+- Node.js
 
 ## Getting Started
 
@@ -41,3 +40,6 @@ so that I can read interesting content.
 ## Contact
 
 Questions? Comments? Please tweet me at [@JonoSue](http://twitter.com/JonoSue).
+
+
+*Last updated August 7, 2017*
