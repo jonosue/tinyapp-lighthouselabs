@@ -1,4 +1,4 @@
-# Jonathan Sue's TinyApp Project (Lighthouse Labs)
+# Jonathan Sue's "TinyApp" Project (Lighthouse Labs)
 
 
 ## Background
@@ -7,7 +7,7 @@ This project was completed as part of the Week 2 requirements while I was a stud
 
 I was asked to build an HTTP Server that handles requests from the browser (client). Along the way I was introduced to some more advanced JavaScript and Node concepts, and I also learned more about Express, a web framework which is very popular in the Node community.
 
-**It is important to note that CSS styling was not an element of this exercise. Visually, it is obviously very plain and poorly laid-out. The purpose of this app was purely to have us work on functionality as opposed to user experience. **
+__It is important to note that CSS styling was not an element of this exercise. Visually, it is obviously very plain and poorly laid-out. The purpose of this app was purely to have us work on functionality as opposed to user experience.__
 
 
 ## User Stories
