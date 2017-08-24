@@ -1,6 +1,13 @@
 # Jonathan Sue's TinyApp Project (Lighthouse Labs)
 
-TinyApp is a full stack web application built with Node and Express that allows users to shorten long URLs (à la bit.ly). It allows users to register/login and create a personalized list of shortened links that they can use. They can also edit where existing shortlinks point to.
+
+## Background
+
+This project was completed as part of the Week 2 requirements while I was a student in the Web Development bootcamp at Lighthouse Labs. The purpose of this four-day assignment was to build a web app using Node. The app will allow users to shorten long URLs much like TinyURL.com and bit.ly do.
+
+I was asked to build an HTTP Server that handles requests from the browser (client). Along the way I was introduced to some more advanced JavaScript and Node concepts, and I also learned more about Express, a web framework which is very popular in the Node community.
+
+**It is important to note that CSS styling was not an element of this exercise. Visually, it is obviously very plain and poorly laid-out. The purpose of this app was purely to have us work on functionality as opposed to user experience. **
 
 
 ## User Stories
@@ -32,14 +39,16 @@ so that I can read interesting content.
 - Express
 - Node.js
 
+
 ## Getting Started
 
 - Install all dependencies (using the `npm install` command).
 - Run the development web server using the `node express_server.js` command.
+
 
 ## Contact
 
 Questions? Comments? Please tweet me at [@JonoSue](http://twitter.com/JonoSue).
 
 
-*Last updated August 7, 2017*
+*README: Last updated August 24, 2017*
