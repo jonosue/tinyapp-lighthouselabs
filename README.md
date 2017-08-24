@@ -7,7 +7,7 @@ This project was completed as part of the Week 2 requirements while I was a stud
 
 I was asked to build an HTTP Server that handles requests from the browser (client). Along the way I was introduced to some more advanced JavaScript and Node concepts, and I also learned more about Express, a web framework which is very popular in the Node community.
 
-__It is important to note that CSS styling was not an element of this exercise. Visually, it is obviously very plain and poorly laid-out. The purpose of this app was purely to have us work on functionality as opposed to user experience.__
+__It is important to note that CSS styling was not an element of this exercise. Visually, it is obviously very plain and poorly laid-out. The purpose of this assignment was purely to have us work on functionality as opposed to user experience. I may eventually fix the styling issues at a later time.__
 
 
 ## User Stories
